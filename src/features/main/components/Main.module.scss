@@ -1,0 +1,70 @@
+@use '@/styles/index' as *;
+
+.main{
+    padding: 107px 0 0;
+    background:url('/images/main/main_bg.png') no-repeat center top/100% auto;
+    .tit{
+        margin: 0 23px;
+        padding: 55px 18px 45px 232px;
+        background:url('/images/main/main_tit_bg.png') no-repeat top center/100% auto;
+        font-family: $f_gw;
+        font-size:37px;
+        color:$maincolor; 
+
+        em{
+            display: block;
+            color:$pointColor; 
+            font-size:41px; 
+            font-family: $f_gw;
+        }
+    }
+    .txt_wrap{
+        background: #fff8e1;
+        margin-top: 735px;
+        padding: 68px 0 110px;
+        text-align: center;
+        border-radius:35px;
+
+        .txt{
+            font-size:30px;
+
+            span{font-family:$fw_b;
+            
+                em{
+                    font-family:$fw_b;
+                    color:$pointColor;
+                }
+            }
+        }
+
+        .go_next{
+            position: relative;
+            margin: 45px auto 0;
+            background: #4caf50;
+            display: flex;  
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size:35px;
+            width: 576px;
+            height: 100px;
+            border-radius:60px;
+            border:7px solid #ffdf3c;
+            box-shadow:0px 10px 0 #4caf50;
+            cursor:pointer;
+
+            &:after{
+                content:'';
+                position: absolute;
+                left: -8px;
+                right: -8px;
+                bottom: -8px;
+                top: -8px;
+                border-radius:60px;
+                border:3px solid #4caf50;
+                z-index: 2;
+                box-shadow: 0 12px 12px rgba(0,0,0,.5)
+            }
+        }
+    }
+}

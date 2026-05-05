@@ -1,0 +1,27 @@
+
+@font-face {
+    font-family: 'GMarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GMarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GangwonEducationTteontteon';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+$txtColor:#121314;
+$maincolor:#19812a;
+$pointColor:#fd9f28;
+$f_gw:'GangwonEducationTteontteon';
+$fw_b:'GMarketSansBold';
+$fw_l:'GMarketSansLight';
