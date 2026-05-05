@@ -1,7 +1,14 @@
 @use '@/styles/index' as *;
 
+@keyframes fadeinbottom{
+    0%{transform: translateY(100%); opacity:0}
+    100%{transform: translateY(0%); opacity:1}
+}
+
 .main{
-    padding: 107px 0 0;
+    position: relative;
+    padding: 107px 0 1100px;
+    overflow: hidden;
     background:url('/images/main/main_bg.png') no-repeat center top/100% auto;
     .tit{
         margin: 0 23px;
@@ -11,22 +18,45 @@
         font-size:37px;
         color:$maincolor; 
 
+        @include mobile{
+            margin: 0 3.194vw;
+            padding: 7.639vw 2.5vw 6.25vw 32.222vw;
+            font-size:5.139vw;
+        }
+
         em{
             display: block;
             color:$pointColor; 
             font-size:41px; 
             font-family: $f_gw;
+            @include mobile{
+                font-size:5.694vw; 
+            }
         }
     }
     .txt_wrap{
         background: #fff8e1;
-        margin-top: 735px;
+        position: absolute;
+        left: 0;
+        right: 0; 
+        bottom: 0;
         padding: 68px 0 110px;
         text-align: center;
         border-radius:35px;
+        opacity:0;
+        transform: translateY(100%);
+        animation: fadeinbottom 1s forwards;
+        @include mobile{
+            margin-top: 102.083vw;
+            padding: 9.444vw 0 15.278vw;
+            border-radius:4.861vw;
+        }
 
         .txt{
             font-size:30px;
+            @include mobile{
+                font-size:4.167vw;
+            }
 
             span{font-family:$fw_b;
             
@@ -53,6 +83,16 @@
             box-shadow:0px 10px 0 #4caf50;
             cursor:pointer;
 
+            @include mobile{
+                margin: 6.25vw auto 0;
+                font-size:4.861vw;
+                width: 80vw;
+                height: 13.889vw;
+                border-radius:8.333vw;
+                border:0.972vw solid #ffdf3c;
+                box-shadow:0vw 1.389vw 0 #4caf50;
+            }
+
             &:after{
                 content:'';
                 position: absolute;
@@ -63,7 +103,15 @@
                 border-radius:60px;
                 border:3px solid #4caf50;
                 z-index: 2;
-                box-shadow: 0 12px 12px rgba(0,0,0,.5)
+                box-shadow: 0 12px 12px rgba(0,0,0,.5);
+
+                @include mobile{
+                    left: -1.111vw;
+                    right: -1.111vw;
+                    bottom: -1.111vw;
+                    top: -1.111vw;
+                    box-shadow: 0 1.667vw 1.667vw rgba(0,0,0,.5);
+                }
             }
         }
     }

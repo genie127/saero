@@ -1,2 +1,7 @@
 @use '@/styles/variable.scss' as var;
 
+@mixin mobile{
+    @media(max-width:720px){
+        @content
+    }
+}
