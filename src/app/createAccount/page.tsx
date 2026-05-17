@@ -1,6 +1,7 @@
-export const CreateAccount =()=>{
+export default function CreateAccount (){
     return(
         <>
+            hi
         </>
 
     )

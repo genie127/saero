@@ -10,6 +10,9 @@
     padding: 107px 0 1100px;
     overflow: hidden;
     background:url('/images/main/main_bg.png') no-repeat center top/100% auto;
+    @include mobile{
+        padding: 14.861vw 0 152.778vw;
+    }
     .tit{
         margin: 0 23px;
         padding: 55px 18px 45px 232px;
