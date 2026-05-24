@@ -6,7 +6,7 @@ import styles from './Main.module.scss'
 export const Main =()=>{
     const {replace} = useRouter();
     const handleNext =()=>{
-        replace('/CreateAccount')
+        replace('/create-account')
     }
 
     return(

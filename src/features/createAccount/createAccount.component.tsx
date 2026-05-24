@@ -105,16 +105,22 @@ export const CreateAccount = () => {
             placeholder="학교명 입력"
           />
 
-          {schools.map(school => (
-            <button
-              type="button"
-              key={school.SD_SCHUL_CODE}
-              onClick={() => handleSelectSchool(school)}
-            >
-              <p>{school.SCHUL_NM}</p>
-              <p>{school.ORG_RDNMA}</p>
-            </button>
-          ))}
+          <ul>
+             {schools.map(school => {
+                console.log(school.SCHUL_NM);
+                return(
+                  <li key={school.SD_SCHUL_CODE}>
+                    <button
+                      type="button"
+                      onClick={() => handleSelectSchool(school)}
+                    >
+                      <p>{school.SCHUL_NM}</p>
+                      <p>{school.ORG_RDNMA}</p>
+                    </button>
+                  </li>
+                )
+              })}
+          </ul>
 
           <button type="button" onClick={onSearch}>
             검색
