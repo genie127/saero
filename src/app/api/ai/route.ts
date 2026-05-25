@@ -24,6 +24,7 @@ export async function POST(req: Request) {
             {
                 message: 'AI 분석 실패',
             },
+            
             {
                 status: 500,
             }
