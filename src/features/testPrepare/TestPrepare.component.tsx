@@ -15,6 +15,22 @@ export const TestPrepare =()=>{
     const router = useRouter();
     const setResult = useTestResultStore(state => state.setResult);
 
+
+
+    const getGrade=(num : number)=>{
+        return(
+            num < 22 ? 'danger' :
+            num < 31 ? 'boundary' :
+            num < 39 ? 'warn' :
+            'safe'
+        )
+    }
+
+
+    const value = encodeURIComponent(JSON.stringify(useTestResultStore(state => state.setResult)));
+
+    document.cookie = `studentScore=${value}; path=/; max-age=86400`; // 1일 유지
+    
     const currentQuestion = TEST_QUESTIONS[currentStep];
 
     const handleSelect = (value: number) => {
@@ -36,15 +52,6 @@ export const TestPrepare =()=>{
 
             const categoryScores = calculateCategoryScores();
 
-            const getGrade=(num : number)=>{
-                return(
-                    num < 22 ? 'danger' :
-                    num < 31 ? 'boundary' :
-                    num < 39 ? 'warn' :
-                    'safe'
-                )
-            }
-
             const grade = getGrade(totalScore);
 
             setResult({
@@ -52,10 +59,6 @@ export const TestPrepare =()=>{
                 categoryScores,
                 grade,
             });
-
-            const value = encodeURIComponent(JSON.stringify(useTestResultStore(state => state.setResult)));
-
-            document.cookie = `studentScore=${value}; path=/; max-age=86400`; // 1일 유지
 
             router.push('/find-danger/test-prepare/result');
         }
