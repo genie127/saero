@@ -8,17 +8,19 @@ import { TestQuestion } from "./components/TestQuestion.component";
 import { useRouter } from "next/navigation";
 import { useTestResultStore } from "@/shared/store/testResult.store";
 
-export const TestPrepare =()=>{
-    
+export const TestPrepare = () => {
+
     const [currentStep, setCurrentStep] = useState(0);
     const [answers, setAnswers] = useState<number[]>([]);
+
     const router = useRouter();
-    const setResult = useTestResultStore(state => state.setResult);
 
-
-
-    const getGrade=(num : number)=>{
-        return(
+    const setResult = useTestResultStore(
+        state => state.setResult
+    );
+ 
+    const getGrade = (num: number) => {
+        return (
             num < 22 ? 'danger' :
             num < 31 ? 'boundary' :
             num < 39 ? 'warn' :
@@ -26,11 +28,11 @@ export const TestPrepare =()=>{
         )
     }
 
-    
     const currentQuestion = TEST_QUESTIONS[currentStep];
 
     const handleSelect = (value: number) => {
         const updated = [...answers];
+
         updated[currentStep] = value;
 
         setAnswers(updated);
@@ -40,6 +42,7 @@ export const TestPrepare =()=>{
         const result: Record<string, number> = {};
 
         TEST_QUESTIONS.forEach((question, index) => {
+
             const category = question.categoryId;
             const score = answers[index] || 0;
 
@@ -52,54 +55,70 @@ export const TestPrepare =()=>{
 
         return result;
     };
-    
 
     const handleNext = () => {
-        if(!answers[currentStep]){
+
+        if (!answers[currentStep]) {
             alert('답을 선택해주세요');
-            return null
+            return;
         }
+
         if (currentStep < TEST_QUESTIONS.length - 1) {
+
             setCurrentStep(prev => prev + 1);
-        }else{
-             const totalScore = answers.reduce((acc, cur) => acc + cur, 0);
+
+        } else {
+
+            const totalScore = answers.reduce(
+                (acc, cur) => acc + cur,
+                0
+            );
 
             const categoryScores = calculateCategoryScores();
 
             const grade = getGrade(totalScore);
 
-            setResult({
+            const resultData = {
                 totalScore,
                 categoryScores,
                 grade,
-            });
+            };
 
-            
+            // zustand 저장
+            setResult(resultData);
 
-            const value = encodeURIComponent(JSON.stringify(useTestResultStore(state => state.setResult)));
+            // cookie 저장
+            const value = encodeURIComponent(
+                JSON.stringify(resultData)
+            );
 
-            document.cookie = `studentScore=${value}; path=/; max-age=86400`; // 1일 유지
+            document.cookie = `
+                studentScore=${value};
+                path=/;
+                max-age=86400;
+            `;
 
             router.push('/find-danger/test-prepare/result');
         }
     };
-    return(
+
+    return (
         <>
-           
             <div className="banner">
-                
+
             </div>
+
             <TestHeader
                 current={currentStep + 1}
                 total={15}
             />
 
-            { <TestQuestion
-                img = {<TestBanner step={currentStep + 1} />}
+            <TestQuestion
+                img={<TestBanner step={currentStep + 1} />}
                 question={currentQuestion}
                 selected={answers[currentStep]}
                 onSelect={handleSelect}
-            />}
+            />
 
             <button onClick={handleNext}>
                 다음
