@@ -26,10 +26,6 @@ export const TestPrepare =()=>{
         )
     }
 
-
-    const value = encodeURIComponent(JSON.stringify(useTestResultStore(state => state.setResult)));
-
-    document.cookie = `studentScore=${value}; path=/; max-age=86400`; // 1일 유지
     
     const currentQuestion = TEST_QUESTIONS[currentStep];
 
@@ -39,6 +35,24 @@ export const TestPrepare =()=>{
 
         setAnswers(updated);
     };
+
+    const calculateCategoryScores = () => {
+        const result: Record<string, number> = {};
+
+        TEST_QUESTIONS.forEach((question, index) => {
+            const category = question.categoryId;
+            const score = answers[index] || 0;
+
+            if (!result[category]) {
+                result[category] = 0;
+            }
+
+            result[category] += score;
+        });
+
+        return result;
+    };
+    
 
     const handleNext = () => {
         if(!answers[currentStep]){
@@ -60,27 +74,15 @@ export const TestPrepare =()=>{
                 grade,
             });
 
+            
+
+            const value = encodeURIComponent(JSON.stringify(useTestResultStore(state => state.setResult)));
+
+            document.cookie = `studentScore=${value}; path=/; max-age=86400`; // 1일 유지
+
             router.push('/find-danger/test-prepare/result');
         }
     };
-
-    const calculateCategoryScores = () => {
-        const result: Record<string, number> = {};
-
-        TEST_QUESTIONS.forEach((question, index) => {
-            const category = question.categoryId;
-            const score = answers[index] || 0;
-
-            if (!result[category]) {
-                result[category] = 0;
-            }
-
-            result[category] += score;
-        });
-
-        return result;
-    };
-    
     return(
         <>
            
