@@ -1,34 +1,23 @@
 'use client'
-import Image from "next/image"
+import 'swiper/swiper.css'
+
 import { Swiper, SwiperSlide } from "swiper/react"
+import { SlideFirst } from "./slideFirst/SlideFirst.component"
+import { SlideSecond } from "./slideSecond/SlideSecond.component"
+import { SlideThird } from "./slideThird/SlideThird.component"
 
 export const Dashboard =()=>{
     return(
         <>
             <Swiper >
                 <SwiperSlide>
-                    <Image
-                        src={'/images/dashboard/sl01_img.png'}
-                        width={257}
-                        height={236}
-                        alt={'슬라이드이미지01'}
-                    />
+                    <SlideFirst/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image
-                        src={'/images/dashboard/sl02_img.png'}
-                        width={257}
-                        height={236}
-                        alt={'슬라이드이미지02'}
-                    />
+                    <SlideSecond/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image
-                        src={'/images/dashboard/sl03_img.png'}
-                        width={257}
-                        height={236}
-                        alt={'슬라이드이미지03'}
-                    />
+                    <SlideThird/>
                 </SwiperSlide>
             </Swiper>
         </>

@@ -1,7 +1,6 @@
 'use client';
 
 import Script from 'next/script';
-import { useState } from 'react';
 
 declare global {
   interface Window {
@@ -9,13 +8,19 @@ declare global {
   }
 }
 
-export default function AddressSearch() {
-  const [address, setAddress] = useState('');
+interface Props {
+  value: string;
+  onChangeAddress: (address: string) => void;
+}
 
+export default function AddressSearch({
+  value,
+  onChangeAddress,
+}: Props) {
   const openPostcode = () => {
     new window.daum.Postcode({
       oncomplete: function (data: any) {
-        setAddress(data.address);
+        onChangeAddress(data.address);
       },
     }).open();
   };
@@ -27,8 +32,16 @@ export default function AddressSearch() {
         strategy="afterInteractive"
       />
 
-      <input value={address} readOnly placeholder="주소를 검색하세요" />
-      <button type="button" onClick={openPostcode}>
+      <input
+        value={value}
+        readOnly
+        placeholder="주소를 검색하세요"
+      />
+
+      <button
+        type="button"
+        onClick={openPostcode}
+      >
         주소 찾기
       </button>
     </>

@@ -15,6 +15,7 @@ type FormState = {
   address: string;
   schoolName: string;
   schoolCode: string;
+  schoolAddress: string;
   grade: string;
   class: string;
 };
@@ -29,6 +30,7 @@ export const CreateAccount = () => {
     address: "",
     schoolName: "",
     schoolCode: "",
+    schoolAddress: "",
     grade: "",
     class: "",
   });
@@ -49,6 +51,7 @@ export const CreateAccount = () => {
       ...prev,
       schoolName: school.SCHUL_NM,
       schoolCode: school.SD_SCHUL_CODE,
+      schoolAddress: school.ORG_RDNMA,
     }));
 
     setSearchTerm(school.SCHUL_NM);
@@ -94,7 +97,15 @@ export const CreateAccount = () => {
 
         <p>
           <label>집 주소</label>
-          <AddressSearch/>
+          <AddressSearch
+            value={form.address}
+            onChangeAddress={(address) =>
+              setForm(prev => ({
+                ...prev,
+                address,
+              }))
+            }
+          />
         </p>
 
         <div>
@@ -107,7 +118,7 @@ export const CreateAccount = () => {
 
           <ul>
              {schools.map(school => {
-                console.log(school.SCHUL_NM);
+                console.log(school.ORG_RDNMA);
                 return(
                   <li key={school.SD_SCHUL_CODE}>
                     <button
