@@ -5,9 +5,11 @@ import { AI_SYSTEM_PROMPT } from "@/shared/services/aiSystemPrompt";
 export const createTestAnalysisPrompt = ({
   totalScore,
   categoryScores,
+promptTxt,
 }: {
   totalScore: number;
   categoryScores: Record<string, number>;
+  promptTxt:string;
 }) => `
 ${AI_SYSTEM_PROMPT}
 
@@ -19,6 +21,8 @@ ${totalScore}
 영역별 점수:
 ${JSON.stringify(categoryScores)}
 
-위 데이터를 기반으로 분석해주세요.
-200자 내외로 작성해주세요
+
+${promptTxt}
+
+
 `;

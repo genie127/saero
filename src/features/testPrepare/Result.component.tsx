@@ -11,6 +11,8 @@ export default function Result() {
         grade,
     } = useTestResultStore();
 
+    const promptTxt = '위 데이터를 기반으로 분석해주세요. 200자 내외로 작성해주세요'
+
     const [analysis, setAnalysis] = useState('');
     const [loading, setLoading] = useState(true);
 
@@ -20,7 +22,7 @@ export default function Result() {
 
             try {
 
-                const res = await fetch('/api/ai', {
+                const res = await fetch('/api/ai/analyzeTestApi', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -28,6 +30,7 @@ export default function Result() {
                     body: JSON.stringify({
                         totalScore,
                         categoryScores,
+                        promptTxt
                     }),
                 });
 
