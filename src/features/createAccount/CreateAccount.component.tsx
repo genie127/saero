@@ -8,6 +8,7 @@ type School = {
   SD_SCHUL_CODE: string;
   SCHUL_NM: string;
   ORG_RDNMA: string;
+  ATPT_OFCDC_SC_CODE: string
 };
 
 type FormState = {
@@ -18,6 +19,8 @@ type FormState = {
   schoolAddress: string;
   grade: string;
   class: string;
+  atpt:string,
+  schul:string,
 };
 
 export const CreateAccount = () => {
@@ -33,6 +36,8 @@ export const CreateAccount = () => {
     schoolAddress: "",
     grade: "",
     class: "",
+    atpt:'',
+    schul:'',
   });
 
   // 학교 검색
@@ -52,6 +57,7 @@ export const CreateAccount = () => {
       schoolName: school.SCHUL_NM,
       schoolCode: school.SD_SCHUL_CODE,
       schoolAddress: school.ORG_RDNMA,
+      atpt: school.ATPT_OFCDC_SC_CODE,
     }));
 
     setSearchTerm(school.SCHUL_NM);

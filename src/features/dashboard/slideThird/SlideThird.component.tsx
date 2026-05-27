@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export const SlideThird = ()=>{
     return(
@@ -18,7 +19,7 @@ export const SlideThird = ()=>{
                 <br/>학사일정, 시간표, 급식 정보를 한눈에 확인하고,
                 <br/>필요한 학교 정보를 쉽게 확인해보세요
             </p>
-            <button>우리 학교 정보 확인하기</button>
+            <Link href={"/info-my-school"}>우리 학교 정보 확인하기</Link>
         </div>
     )
 }
