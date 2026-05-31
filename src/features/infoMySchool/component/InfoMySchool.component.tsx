@@ -3,6 +3,8 @@ import { Modal } from "@/shared/components/Modal/component/Modal.component"
 import useModal from "@/shared/components/Modal/hooks/useModal.hooks"
 import { ReactNode } from "react"
 import DOMPurify from 'dompurify'
+import './infoMySchool.scss'
+import Link from "next/link"
 
 interface TimeTable{
     PERIO: string
@@ -27,8 +29,7 @@ export const InfoMySchool =()=>{
     async function handleOpenTimeTableModal() {
 
         const res = await fetch(`/api/school/schoolTimetable`);
-
-
+        
         const data = await res.json();
 
         if (!res.ok) {
@@ -39,6 +40,7 @@ export const InfoMySchool =()=>{
             children:
                 <div>
                     {
+                        data.length == 0? <p>오늘은 휴일입니다.</p> :
                         data.map((item: TimeTable) => (
                             <li key={item.PERIO}>
                                 {item.PERIO}교시 -{item.ITRT_CNTNT}
@@ -63,6 +65,7 @@ export const InfoMySchool =()=>{
             children:
                 <div>
                     {
+                        data.length == 0? <p>오늘은 휴일입니다.</p> :
                         data.map((item: Meal, index:number) => (
                             <li key={index}
                                 dangerouslySetInnerHTML={{
@@ -100,7 +103,13 @@ export const InfoMySchool =()=>{
         })
     }
     return(
-        <>
+        <div className="infoMySchool">
+            <div className="tit_sec">
+                <h3>우리  학교 정보 알아보기</h3>
+                <p className="desc">AI 알리미 세이로가 <br />
+                우리 아이 오늘의 학교 생활을<br />
+                한눈에 볼 수 있도록 제공해요.</p>
+            </div>
             <ul>
                 <li>
                     <button onClick={()=>handleOpenTimeTableModal()}>수업시간표</button>
@@ -108,7 +117,7 @@ export const InfoMySchool =()=>{
                 <li>
                     <button onClick={()=>handleOpenMealModal()}>오늘의 식단표</button>
                 </li>
-                <li>
+                <li className="full">
                     <button onClick={()=>handleOpenSchedule()}>학사일정 확인</button>
                 </li>
             </ul>
@@ -118,6 +127,8 @@ export const InfoMySchool =()=>{
             >
                 {state.modalCon}
             </Modal>
-        </>
+
+            <Link href="/dashboard" className="btn_next">대시보드로 이동</Link>
+        </div>
     )
 }

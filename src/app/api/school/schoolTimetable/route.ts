@@ -19,7 +19,7 @@ export async function GET(req: Request) {
     const today = this_year+this_month+this_day;
 
   const url = new URL("https://open.neis.go.kr/hub/elsTimetable");
-   url.searchParams.append("KEY", process.env.NEXT_PUBLIC_NEIS_API_KEY!);
+   url.searchParams.append("KEY", process.env.NEIS_API_KEY!);
   url.searchParams.append("Type", "json");
   url.searchParams.append("pIndex", "1");
   url.searchParams.append("pSIze", "100");
@@ -33,7 +33,6 @@ export async function GET(req: Request) {
   const res = await fetch(url.toString());
   const json = await res.json();
 
-  console.log(url)
   
   const timeTable = json.elsTimetable?.[1]?.row ?? [];
   

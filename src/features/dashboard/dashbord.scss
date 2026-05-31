@@ -1,0 +1,112 @@
+@use '@/styles/' as *;
+
+.dashboard{
+    background: url('/images/dashboard/bg.png') no-repeat center top/100% auto;
+}
+
+.swiper{margin-top: 50px;}
+
+.wrap_slide{
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+    background: #fff;
+    border-radius:40px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,.3);
+
+    .tit{
+        p{
+            font-size:26px; 
+
+        }
+        h2{
+            font-size: 34px; color:$maincolor;
+             font-weight:900; font-family: $fw_b;
+        }
+    }
+    img{
+        width: 70%;
+        height: auto;
+    }
+    p{margin-top: 15px; font-size:17px}
+
+    a, button{
+        margin-top: 23px;
+        display: block;
+        width: 100%;
+        height: 100px;
+        background: $maincolor ;
+        color:#fff;
+        font-size:32px;
+        border-radius:50px;
+        line-height: 100px;
+        text-decoration: none;
+    }
+   
+}
+ .icon_hand{position: absolute;
+    right: 20px;
+    top: 40%;
+    animation:leftright 3s infinite;
+    z-index: 5;
+}
+
+@keyframes leftright {
+    0%{right: 20px;}
+    50%{right: 80px;}
+    100%{right: 20px;}
+}
+
+@media (max-width:720px) {
+    .swiper{margin-top: 6.944vw;}
+
+.wrap_slide{
+    width: 80%;
+    margin: 0 auto;
+    padding: 4.167vw;
+    text-align: center;
+    background: #fff;
+    border-radius:5.556vw;
+    box-shadow: 0.417vw 0.417vw 1.389vw rgba(0,0,0,.3);
+
+    .tit{
+        p{
+            font-size:3.611vw; 
+
+        }
+        h2{
+            font-size: 4.722vw; color:$maincolor;
+             font-weight:900; font-family: $fw_b;
+        }
+    }
+    img{
+        width: 70%;
+        height: auto;
+    }
+    p{margin-top: 2.083vw; font-size:2.361vw}
+
+    a, button{
+        margin-top: 3.194vw;
+        display: block;
+        width: 100%;
+        height: 13.889vw;
+        background: $maincolor ;
+        color:#fff;
+        font-size:4.444vw;
+        border-radius:6.944vw;
+        line-height: 13.889vw;
+        text-decoration: none;
+    }
+   
+}
+ .icon_hand{position: absolute;
+    width: 13.889vw;
+    right: 2.778vw;
+    top: 69.444vw;
+    animation:leftright 3s infinite;
+    z-index: 5;
+
+    img{width: 100%; height: auto;}
+}
+}

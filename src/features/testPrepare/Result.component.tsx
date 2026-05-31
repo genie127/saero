@@ -1,7 +1,8 @@
 'use client'
-
+import './result.scss';
 import { useEffect, useState } from 'react';
 import { useTestResultStore } from '@/shared/store/testResult.store';
+import Link from 'next/link';
 
 export default function Result() {
 
@@ -65,25 +66,34 @@ export default function Result() {
 
     return (
 
-        <div>
-            <h1>우리 아이 준비도 결과</h1>
+        <div className='result'>
+           <div className="tit_sec">
+                <h3>우리 아이 준비도 결과</h3>
 
-            <p>
-                <span className={grade}>
-                    {totalScore}
-                </span>
-                점
-            </p>
+                <p className='total'>
+                    <span className={grade}>
+                        {totalScore}
+                    </span>
+                    점
+                </p>
 
-            <p>{gradeTxt(grade)}</p>
+                <p className='grade'>{gradeTxt(grade)}</p>
+           </div>
 
-            {
-                loading
-                    ? <p>AI가 결과 분석 중...</p>
-                    : <pre>{analysis}</pre>
-            }
 
-            <button></button>
+            <div className="coaching">
+                <h4>안전지킴이 세이로의 코칭</h4>
+                <p>
+                        {
+                            loading
+                                ? <p>AI가 결과 분석 중...</p>
+                                : <pre>{analysis}</pre>
+                        }
+                </p>
+
+            </div>
+
+            <Link href={'/find-danger/coaching-ai'} className='btn_next'>오늘의 AI 코칭 알아보기</Link>
 
         </div>
     );

@@ -1,14 +1,17 @@
 import Link from "next/link"
+import './findDanger.scss'
+import Image from "next/image"
 
 export const FindDanger=()=>{
     return(
         <div className="findDanger">
+
             <h2>110cm 위험요소 확인하기</h2>
-            <p>AI로봇 세이로가 집→학교 등굣길을
+            <p className="desc">AI로봇 세이로가 집→학교 등굣길을
                 <br />우리 아이 눈높이 110cm 시점으로 
                 <br />분석해 맞춤 안전 코칭을 제공해요.
             </p>
-            <p>오늘은 무엇을 확인할까요?</p>
+            <p className="subtit">오늘은 무엇을 확인할까요?</p>
 
             <ul>
                 <li>

@@ -33,7 +33,6 @@ export async function GET(req: Request) {
   const res = await fetch(url.toString());
   const json = await res.json();
 
-  console.log(url)
   
   const meal = json.mealServiceDietInfo?.[1]?.row ?? [];
   

@@ -1,5 +1,6 @@
 import { ReactNode } from "react"
 import useModal from "../hooks/useModal.hooks"
+import './Modal.scss'
 
 interface ModalType {
     openModal: boolean
@@ -14,14 +15,18 @@ export const Modal =({openModal,onClose, children}:ModalType)=>{
 
     return(
         <div className="modal">
+            
+            <div className="modal_con">
+               <div className="child">
+
+                 {children}
+               </div>
             <button 
                 onClick={onClose} 
                     className="modal_overlay"
             >
-                button
-                </button>
-            <div className="modal_con">
-                {children}
+                닫기
+            </button>
             </div>
         </div>
     )

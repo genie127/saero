@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export const SlideSecond = ()=>{
     return(
@@ -18,7 +19,7 @@ export const SlideSecond = ()=>{
                 <br/>AI 비서로봇 세이로가 가장 안전하고 효율적인 
                 <br/>일정을 만들어드려요
             </p>
-            <button>AI 맞춤 일정 추천받기</button>
+            <Link href='/recommend'>AI 맞춤 일정 추천받기</Link>
         </div>
     )
 }

@@ -1,5 +1,6 @@
 'use client'
 
+import './test.scss'
 import { useState } from "react";
 import { TEST_QUESTIONS } from "./constant/testList";
 import { TestHeader } from "./components/TestHeader.component";
@@ -103,7 +104,7 @@ export const TestPrepare = () => {
     };
 
     return (
-        <>
+        <div className='testPage'>
             <div className="banner">
 
             </div>
@@ -120,9 +121,9 @@ export const TestPrepare = () => {
                 onSelect={handleSelect}
             />
 
-            <button onClick={handleNext}>
+            <button className='btn_next' onClick={handleNext}>
                 다음
             </button>
-        </>
+        </div>
     )
 }

@@ -9,7 +9,6 @@ export default function useModal(){
         setModalCon(children)
     }
     const handleCloseModal =()=>{
-        console.log('클릭')
         setOpenModal(false)
         
     }

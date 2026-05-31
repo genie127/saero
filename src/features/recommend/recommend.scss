@@ -1,0 +1,75 @@
+@use '@/styles' as *;
+
+.recommend{
+    background:url('/images/dashboard/bg.png') no-repeat center top/cover;
+    padding: 30px 40px;
+
+    .tit_sec{
+        background: #fff;
+        box-shadow: 3px 3px 10px rgba(0,0,0,.3);
+        border-radius:15px;
+        text-align: center;
+        padding: 40px 15px;
+
+        h3{font-size: 31px; font-family: $fw_b; color:$maincolor;}
+        .desc{
+            margin-top: px;
+            font-size:22px;
+            line-height: 1.5;
+        }
+
+
+    }
+    .info_sec{
+        background: #fff;
+        padding: 20px 40px;
+        margin-top: 50px;
+        .input_wrap{
+            display: flex;
+            flex-wrap:wrap;
+        }
+        .input_wrap + .input_wrap{margin-top: 15px;}
+
+        label{display: block; font-size:32px; text-align: left;}
+        input{display: block; width: 100%; height: 70px; font-size:35px; color:#000; padding: 0 10px;
+
+            &::placeholder{color:#ccc}
+        }
+
+        
+        .btn_submit{
+            margin-top: 23px;
+            display: block;
+            width: 100%;
+            height: 100px;
+            background: $maincolor ;
+            color:#fff;
+            font-size:32px;
+            border-radius:50px;
+            line-height: 100px;
+
+
+        }
+    }
+    .coaching{
+        background: #fff;
+            margin-top: 40px;
+            padding: 40px;
+            box-shadow: 3px 3px 10px rgba(0,0,0,.3);
+            border:1px solid $maincolor;
+        
+            padding: 40px;
+            text-align: center;
+            font-size:20px;
+            white-space: break-spaces;
+            word-break: break-all;
+            
+            h4{
+                padding: 15px;
+                    background: $maincolor;
+                color:#fff;
+                font-size:24px;
+            }
+        }
+
+}

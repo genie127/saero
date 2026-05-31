@@ -17,11 +17,11 @@ export const TestQuestion = (
 )=>{
     return(
         <>
-            <p>{question.category}</p>
+            <p className="category" >{question.category}</p>
             {img}
-            <p>{question.question}</p>
+            <p className="question">{question.question}</p>
         
-            <ul>
+            <ul className="answer">
                 {question.options.map((opts, index)=>{
                     const idx = index + 1;
                    return(

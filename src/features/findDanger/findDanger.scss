@@ -1,0 +1,92 @@
+@use '@/styles' as *;
+
+.findDanger{
+    background: url('/images/findDanger/bg.png') no-repeat center top/66.5% auto;
+    padding: 100px 40px;
+    h2{text-align: center; color:$maincolor; font-family: $fw_b; font-size:34px}
+    .desc{
+        margin-top: 108px;
+        font-size:22px;
+        line-height: 1.5;
+    }
+    .subtit{margin-top: 84px; font-size:25px; text-align: center;}
+    ul{
+        margin-top: 40px;
+
+        li{
+            box-shadow: 3px 3px 10px rgba(0,0,0,.03);
+            border-radius:10px;
+            border:1px solid $maincolor;
+
+            &:hover{
+                background: $maincolor;
+
+                a{
+                    p, span{color:#fff;}
+                }
+            }
+            &+ li{
+                margin-top: 24px;
+            }
+            a{
+                display: block;
+                padding: 48px 70px 48px 220px;
+                text-decoration:none;
+
+                p{
+                    font-size:22px;
+                    font-family: $fw_b;
+
+                }
+                span{
+                    font-size:11px
+                }
+            }
+        }
+    }
+
+    @media(max-width:720px){
+            padding: 13.889vw 5.556vw;
+         h2{text-align: center; color:$maincolor; font-family: $fw_b; font-size:4.722vw}
+    .desc{
+        margin-top: 15vw;
+        font-size:3.056vw;
+    }
+    .subtit{margin-top: 11.667vw; font-size:3.472vw; text-align: center;}
+    ul{
+        margin-top: 5.556vw;
+
+        li{
+            box-shadow: 0.417vw 0.417vw 1.389vw rgba(0,0,0,.03);
+            border-radius:1.389vw;
+            border:0.139vw solid $maincolor;
+
+            &:hover{
+                background: $maincolor;
+
+                a{
+                    p, span{color:#fff;}
+                }
+            }
+            &+ li{
+                margin-top: 3.333vw;
+            }
+            a{
+                display: block;
+                padding: 6.667vw 9.722vw 6.667vw 30.556vw;
+                text-decoration:none;
+
+                p{
+                    font-size:3.056vw;
+                    font-family: $fw_b;
+
+                }
+                span{
+                    font-size:1.528vw
+                }
+            }
+        }
+    }
+    }
+
+}

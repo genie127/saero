@@ -1,5 +1,6 @@
 'use client'
 
+import './CreateAccount.scss'
 import AddressSearch from "@/shared/components/AddressSearch/AddressSearch";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -9,6 +10,7 @@ type School = {
   SCHUL_NM: string;
   ORG_RDNMA: string;
   ATPT_OFCDC_SC_CODE: string
+  LCTN_SC_NM: string
 };
 
 type FormState = {
@@ -20,7 +22,8 @@ type FormState = {
   grade: string;
   class: string;
   atpt:string,
-  schul:string,
+  local:string,
+  code:string,
 };
 
 export const CreateAccount = () => {
@@ -37,7 +40,8 @@ export const CreateAccount = () => {
     grade: "",
     class: "",
     atpt:'',
-    schul:'',
+    local:"",
+    code:""
   });
 
   // 학교 검색
@@ -82,15 +86,15 @@ export const CreateAccount = () => {
   }
 
   return (
-    <div className="tit_sec">
-      <div>
+    <div className='createAccount'>
+      <div className="tit_sec">
         <h2>우리 아이의 정보를 입력해주세요.</h2>
         <p>초등학교 시작을 돕는 꼭 필요한 정보예요.</p>
       </div>
 
       <form className="info_sec" onSubmit={handleSubmit}>
 
-        <p>
+        <div className="input_wrap ">
           <label>아이의 이름</label>
           <input
             type="text"
@@ -98,10 +102,12 @@ export const CreateAccount = () => {
             onChange={(e) =>
               setForm(prev => ({ ...prev, studentName: e.target.value }))
             }
+            required
+            placeholder="이름"
           />
-        </p>
+        </div>
 
-        <p>
+        <div className="input_wrap school ">
           <label>집 주소</label>
           <AddressSearch
             value={form.address}
@@ -111,20 +117,35 @@ export const CreateAccount = () => {
                 address,
               }))
             }
+            code={form.code}
+            onChangeCode={(code) =>
+              setForm(prev => ({
+                ...prev,
+                code,
+              }))
+            }
+            local={form.local}
+            onChangeLocal={(local) =>
+              setForm(prev => ({
+                ...prev,
+                local,
+              }))
+            }
           />
-        </p>
+        </div>
 
-        <div>
+        <div className="input_wrap school">
+          <label>학교 명</label>
           <input
             type="text"
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             placeholder="학교명 입력"
+            required
           />
 
           <ul>
              {schools.map(school => {
-                console.log(school.ORG_RDNMA);
                 return(
                   <li key={school.SD_SCHUL_CODE}>
                     <button
@@ -132,20 +153,20 @@ export const CreateAccount = () => {
                       onClick={() => handleSelectSchool(school)}
                     >
                       <p>{school.SCHUL_NM}</p>
-                      <p>{school.ORG_RDNMA}</p>
+                      <p className='addr'>{school.ORG_RDNMA}</p>
                     </button>
                   </li>
                 )
               })}
           </ul>
 
-          <button type="button" onClick={onSearch}>
+          <button type="button" onClick={onSearch} className='btn_search'>
             검색
           </button>
         </div>
 
         <div className="grade">
-          <p>
+          <div className="input_wrap ">
             <label>학년</label>
             <input
               type="text"
@@ -153,9 +174,12 @@ export const CreateAccount = () => {
               onChange={(e) =>
                 setForm(prev => ({ ...prev, grade: e.target.value }))
               }
+              required
+            placeholder="학년(숫자만 입력)"
+
             />
-          </p>
-          <p>
+          </div>
+          <div className="input_wrap ">
             <label>반</label>
             <input
               type="text"
@@ -163,11 +187,13 @@ export const CreateAccount = () => {
               onChange={(e) =>
                 setForm(prev => ({ ...prev, class: e.target.value }))
               }
+              required
+              placeholder="반(숫자만 입력)"
             />
-          </p>
+          </div>
         </div>
 
-        <button type="submit">
+        <button type="submit" className='btn_submit'>
           정보 저장하고 시작하기
         </button>
       </form>

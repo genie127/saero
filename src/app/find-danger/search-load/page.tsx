@@ -11,7 +11,6 @@ export default async function SearchLoadPage(){
     ? JSON.parse(studentInfoCookie)
     : null;
     
-    console.log(studentInfo)
 
     return(
         <SearchLoad studentInfo={studentInfo}/>

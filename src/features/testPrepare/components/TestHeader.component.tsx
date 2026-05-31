@@ -11,7 +11,7 @@ export const TestHeader =({current, total} : {current: number, total:number})=>{
                 {Array.from({ length: total }).map((_, index) => (
                 <li
                     key={index}
-                    className={current <= index ? "active" : ""}
+                    className={current > index ? "active" : ""}
                 />
                 ))}
             </ul>
