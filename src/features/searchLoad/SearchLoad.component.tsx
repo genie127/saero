@@ -87,7 +87,7 @@ export const SearchLoad = ({ studentInfo }: Props) => {
 
 
 
-			<Link href="/dashboard" className='btn_next'>대시보드 화면으로</Link>
+			<Link href="/dashboard" className='btn_next'>메인화면으로</Link>
 		</div>
 	);
 };

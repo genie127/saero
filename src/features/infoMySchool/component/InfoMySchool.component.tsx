@@ -29,8 +29,8 @@ export const InfoMySchool =()=>{
     async function handleOpenTimeTableModal() {
 
         const res = await fetch(`/api/school/schoolTimetable`);
-        
         const data = await res.json();
+        console.log(data)
 
         if (!res.ok) {
             throw new Error('시간표 조회 실패')
@@ -128,7 +128,7 @@ export const InfoMySchool =()=>{
                 {state.modalCon}
             </Modal>
 
-            <Link href="/dashboard" className="btn_next">대시보드로 이동</Link>
+            <Link href="/dashboard" className="btn_next">메인으로 이동</Link>
         </div>
     )
 }

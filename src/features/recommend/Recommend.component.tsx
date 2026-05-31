@@ -4,6 +4,7 @@ import { RecommendForm } from '@/features/recommend/components/RecommendForm';
 import { RecommendResult } from '@/features/recommend/components/RecommendResult';
 import { useRecommend } from '@/features/recommend/hooks/useRecommend';
 import { StudentInfo } from './types/recommend.type';
+import Link from 'next/link';
 
 interface Props {
     studentInfo: StudentInfo;
@@ -35,6 +36,10 @@ export const Recommend = ({ studentInfo }: Props) => {
             <RecommendResult
                 result={loading ? '로딩중' : result}
             />
+
+            <Link href="/dashboard" className="btn_next">
+                메인화면으로
+            </Link>
         </div>
     );
 };
