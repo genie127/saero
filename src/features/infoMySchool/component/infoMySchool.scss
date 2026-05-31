@@ -70,3 +70,79 @@
         text-decoration: none;
     }
 }
+
+@media(max-width:720px) {
+
+    
+.infoMySchool{
+    background: url('/images/dashboard/bg.png') no-repeat center top/100% auto;
+    // background:url('/images/findDanger/bg.png') no-repeat center top/68.5% auto;
+    padding: 4.167vw 5.556vw;
+
+    .tit_sec{
+        background: #fff;
+        box-shadow: 0.417vw 0.417vw 1.389vw rgba(0,0,0,.3);
+        border-radius:2.083vw;
+        text-align: center;
+        padding: 5.556vw 2.083vw;
+
+        h3{font-size: 4.306vw; font-family: $fw_b; color:$maincolor;}
+        .desc{
+            margin-top: px;
+            font-size:3.056vw;
+            line-height: 1.5;
+        }
+
+
+    }
+    ul{
+        margin-top: 6.667vw;
+        display: flex;
+        flex-wrap:wrap;
+        justify-content: space-between; align-items: center;
+        gap:2.778vw;
+
+        li{
+            background: #fff;
+            width: calc(50% - 1.389vw);
+           button{
+                display: block;
+                width: 100%;
+                border-radius:2.083vw;
+                border:0.139vw solid $maincolor;
+                padding: 5.556vw 2.083vw;
+                text-align: center;
+                font-size:2.778vw;
+                cursor:pointer;
+
+                &:hover{
+                    background: $maincolor;
+                    color:#fff;
+                }
+
+            }
+            &.full{
+                width: 100%;
+            }
+
+        }
+    }
+
+    
+    .btn_next{
+        text-align: center;
+        cursor:pointer;
+        margin-top: 3.194vw;
+        display: block;
+        width: 100%;
+        height: 13.889vw;
+        background: $maincolor ;
+        color:#fff;
+        font-size:4.444vw;
+        border-radius:6.944vw;
+        line-height: 13.889vw;
+        text-decoration: none;
+    }
+}
+    
+}

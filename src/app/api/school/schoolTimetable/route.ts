@@ -20,16 +20,16 @@ export async function GET(req: Request) {
 
   const url = new URL("https://open.neis.go.kr/hub/elsTimetable");
    url.searchParams.append("KEY", process.env.NEXT_PUBLIC_NEIS_API_KEY!);
-  url.searchParams.append("Type", "json");
-  url.searchParams.append("pIndex", "1");
-  url.searchParams.append("pSIze", "100");
-  url.searchParams.append("ATPT_OFCDC_SC_CODE", studentInfo.atpt);
-  url.searchParams.append("SD_SCHUL_CODE", studentInfo.schoolCode);
-  url.searchParams.append("AY", this_year);
-  url.searchParams.append("SEM", this_sem);
-  url.searchParams.append("ALL_TI_YMD", today);
-  url.searchParams.append("GRADE", studentInfo.grade);
-  url.searchParams.append("CLASS_NM", studentInfo.class);
+    url.searchParams.append("Type", "json");
+    url.searchParams.append("pIndex", "1");
+    url.searchParams.append("pSIze", "100");
+    url.searchParams.append("ATPT_OFCDC_SC_CODE", studentInfo.atpt);
+    url.searchParams.append("SD_SCHUL_CODE", studentInfo.schoolCode);
+    url.searchParams.append("AY", this_year);
+    url.searchParams.append("SEM", this_sem);
+    url.searchParams.append("ALL_TI_YMD", today);
+    url.searchParams.append("GRADE", studentInfo.grade);
+    url.searchParams.append("CLASS_NM", studentInfo.class);
   const res = await fetch(url.toString());
   const json = await res.json();
 

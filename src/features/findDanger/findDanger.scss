@@ -45,7 +45,7 @@
         }
     }
 
-    @media(max-width:720px){
+    @include mobile{
             padding: 13.889vw 5.556vw;
          h2{text-align: center; color:$maincolor; font-family: $fw_b; font-size:4.722vw}
     .desc{
